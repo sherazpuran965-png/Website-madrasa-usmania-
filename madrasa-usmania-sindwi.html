@@ -327,16 +327,6 @@ body{ padding-bottom:calc(92px + env(safe-area-inset-bottom,0px)); }
   @page{ size:A4; margin:8mm; }
 }
 
-/* portals: white glass */
-.portal-card{
-  background:linear-gradient(135deg, rgba(255,255,255,0.30), rgba(255,255,255,0.12)) !important;
-  border:1px solid rgba(255,255,255,0.60);
-  box-shadow:0 8px 32px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.55);
-}
-.portal-card h3{ color:#fff; text-shadow:0 1px 6px rgba(0,0,0,0.35); }
-.portal-card p{ color:rgba(255,255,255,0.92); text-shadow:0 1px 4px rgba(0,0,0,0.3); }
-.portal-card .icon{ background:rgba(255,255,255,0.35); border:1px solid rgba(255,255,255,0.7); }
-
 body{ background-attachment:fixed; }  /* no gradient seam while scrolling */
 /* admission form (designed sheet) */
 .adm2-wrap{ container-type:inline-size; max-width:800px; margin:0 auto; }
@@ -381,13 +371,6 @@ body{ background-attachment:fixed; }  /* no gradient seam while scrolling */
   .adm2 .cols{ display:grid; grid-template-columns:1fr 1fr; gap:0 28px; }
   .adm2 .bot{ display:grid; grid-template-columns:1fr 1.9fr; align-items:stretch; } .adm2 .decl{ order:0; }
 }
-
-/* logo watermark behind the form */
-.adm2{ position:relative; overflow:hidden; }
-.adm2 > *:not(.wm){ position:relative; z-index:1; }
-.adm2 .wm{ position:absolute; z-index:0; left:50%; top:54%; width:72%; max-width:520px; aspect-ratio:1; object-fit:cover; border-radius:50%; transform:translate(-50%,-50%); opacity:0.09; pointer-events:none; }
-.adm2 .sec, .adm2 .decl, .adm2 .office{ background:transparent; }
-.adm2 .lang, .adm2 .photo{ background:rgba(238,243,234,0.75); }
 
 /* logo watermark behind the form */
 .adm2{ position:relative; overflow:hidden; }
@@ -443,6 +426,86 @@ body{ background-attachment:fixed; }  /* no gradient seam while scrolling */
 .dmc-meta{ display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:8px 0; }
 .dmc-row{ display:grid; grid-template-columns:2fr 1fr 1fr auto; gap:6px; margin-bottom:6px; align-items:center; }
 .dmc-edbtns{ display:flex; gap:10px; margin-top:10px; flex-wrap:wrap; }
+
+
+/* milky water theme */
+:root{
+  --water:#1e7d46;
+  --text-light:#12372a;
+  --text-dim:#3d5f54;
+  --gold-light:#8a6414;
+  --glass-bg:rgba(255,255,255,0.62);
+  --glass-bg-strong:rgba(255,255,255,0.8);
+  --glass-border:rgba(15,90,55,0.18);
+}
+body{
+  background:#1e7d46 !important;
+  background-attachment:fixed !important;
+  color:var(--text-light);
+}
+.glass{ box-shadow:0 6px 22px rgba(15,90,55,0.10), inset 0 1px 0 rgba(255,255,255,0.9); }
+.hero h1{ text-shadow:none; color:#0d5a37; }
+.brand-name,.section-title h2,.about-card h3,.contact-card h3,.admin-table-wrap h3,.stat .num{ color:#0d5a37; }
+.hero .motto,.announce-item .date{ color:#8a6414; }
+.lang-menu{ background:rgba(255,255,255,0.97); box-shadow:0 12px 30px rgba(15,90,55,0.18); }
+.lang-menu button:hover{ background:rgba(15,90,55,0.08); }
+.btn.ghost{ background:rgba(255,255,255,0.75); }
+form input, form textarea, .lookup-box input{ background:rgba(255,255,255,0.85); color:var(--text-light); }
+.portal-card{ box-shadow:0 6px 22px rgba(15,90,55,0.12) !important; }
+.portal-card:hover{ box-shadow:0 14px 30px rgba(15,90,55,0.18) !important; }
+.bottombar{ box-shadow:0 6px 22px rgba(15,90,55,0.18) !important; }
+.student-row [contenteditable]{ background:rgba(15,90,55,0.06); }
+.student-row .s-del,.teacher-card .t-del{ background:rgba(255,255,255,0.9); color:var(--text-light); }
+
+
+/* hifz & nazira classes */
+#progress.expanded{ max-height:20000px; }
+.hc-title{ text-align:center; font-family:'Noto Nastaliq Urdu',serif; color:#0d5a37; margin:0 0 18px; font-size:1.3rem; }
+.hc-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:18px; margin-bottom:34px; }
+.hc-card{ padding:20px 18px; display:flex; flex-direction:column; gap:10px; }
+.hc-name{ font-family:'Noto Nastaliq Urdu',serif; font-size:1.2rem; font-weight:700; color:#0d5a37; text-align:center; padding-bottom:8px; border-bottom:1px solid var(--glass-border); }
+.hc-row{ display:flex; align-items:center; gap:8px; font-size:.98rem; color:var(--text-dim); flex-wrap:wrap; }
+.hc-row b{ color:var(--text-light); font-weight:600; }
+.hc-val{ color:var(--text-light); font-weight:600; }
+.hc-ph{ opacity:.55; }
+.hc-num{ width:5.5em; padding:4px 10px; border-radius:10px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.9); color:var(--text-light); font:inherit; font-weight:700; text-align:center; }
+.hc-card [contenteditable="true"]{ outline:1px dashed rgba(138,100,20,0.45); outline-offset:2px; border-radius:6px; cursor:text; }
+
+
+/* classes live inside the Hifz & Nazira box */
+.stat-head{ cursor:pointer; }
+.stat-arrow{ color:#8a6414; font-size:1rem; line-height:1; margin-top:2px; transition:transform .25s; }
+.hc-panel{ display:none; margin-top:16px; text-align:start; }
+#hifzStat.open{ grid-column:1 / -1; }
+#hifzStat.open .hc-panel{ display:block; }
+#hifzStat.open .stat-arrow{ transform:rotate(180deg); }
+#hifzStat .hc-grid{ margin-bottom:0; }
+
+
+/* green page, thick water-colored glass slabs */
+.glass, .portal-card, .stat, .about-card, .contact-card, .lookup-box, .announce-item, .lib-photo, .bottombar{
+  background:
+    linear-gradient(118deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.14) 26%, rgba(255,255,255,0) 42%, rgba(255,255,255,0.10) 70%, rgba(255,255,255,0.32) 100%),
+    linear-gradient(160deg, rgba(214,246,252,0.78) 0%, rgba(128,206,230,0.62) 52%, rgba(190,236,247,0.74) 100%) !important;
+  -webkit-backdrop-filter:blur(14px) saturate(170%) !important;
+  backdrop-filter:blur(14px) saturate(170%) !important;
+  border:3px solid rgba(236,252,255,0.88) !important;
+  box-shadow:
+    0 16px 30px rgba(0,38,14,0.50),                       /* slab lifting off the page */
+    0 3px 0 rgba(95,175,205,0.85),                          /* thick glass edge underneath */
+    inset 0 0 0 1px rgba(100,190,220,0.80),                 /* inner glass edge line */
+    inset 0 4px 7px rgba(255,255,255,0.95),                 /* top bevel */
+    inset 3px 0 8px rgba(255,255,255,0.35),
+    inset 0 -12px 18px rgba(55,150,185,0.45) !important;   /* glass depth at the bottom */
+}
+.portal-card .icon{ background:rgba(255,255,255,0.8) !important; }
+/* text that sits directly on the brown page */
+.hero h1{ color:#fff3d6 !important; text-shadow:0 2px 8px rgba(40,20,0,0.45) !important; }
+.hero .tagline, .section-title p, footer{ color:#fff1dc !important; }
+.hero .motto, .motto span:not(:last-child)::after{ color:#ffe3a3 !important; }
+.section-title h2{ color:#fff3d6 !important; text-shadow:0 1px 6px rgba(40,20,0,0.40); }
+.bg-logo{ opacity:.07; }
+.adm-sheet.glass{ background:#fff !important; box-shadow:none !important; }  /* fee challan stays plain white paper */
 
 @media (prefers-reduced-motion: reduce){
   .logo-3d{ animation:none; }
@@ -511,21 +574,6 @@ body{ background-attachment:fixed; }  /* no gradient seam while scrolling */
       <h3 data-i18n="p3_t" data-ed="true">فیس چالان</h3>
       <p data-i18n="p3_d" data-ed="true">ماہانہ فیس چالان کی تیاری اور ادائیگی کی تفصیل</p>
     </a>
-    <a class="portal-card glass" href="#contact">
-      <div class="icon">📅</div>
-      <h3 data-i18n="p4_t" data-ed="true">تاریخِ امتحان</h3>
-      <p data-i18n="p4_d" data-ed="true">امتحانی شیڈول اور کلاس ٹائم ٹیبل کی تفصیلات</p>
-    </a>
-    <a class="portal-card glass" href="#contact">
-      <div class="icon">📚</div>
-      <h3 data-i18n="p5_t" data-ed="true">نصاب و کتب</h3>
-      <p data-i18n="p5_d" data-ed="true">حفظ، ناظرہ اور درسِ نظامی کے نصاب کی معلومات</p>
-    </a>
-    <a class="portal-card glass" href="#contact">
-      <div class="icon">🖼️</div>
-      <h3 data-i18n="p6_t" data-ed="true">گیلری</h3>
-      <p data-i18n="p6_d" data-ed="true">مدرسہ کی تقریبات اور سرگرمیوں کی جھلکیاں</p>
-    </a>
     <a class="portal-card glass" href="#teachers">
       <div class="icon">🧑‍🏫</div>
       <h3 data-i18n="p7_t" data-ed="true">اساتذہ کرام</h3>
@@ -535,26 +583,6 @@ body{ background-attachment:fixed; }  /* no gradient seam while scrolling */
       <div class="icon">📖</div>
       <h3 data-i18n="p8_t" data-ed="true">لائبریری</h3>
       <p data-i18n="p8_d" data-ed="true">کتب خانہ اور مطالعہ کی سہولیات کی تفصیل</p>
-    </a>
-    <a class="portal-card glass" href="#contact">
-      <div class="icon">🏠</div>
-      <h3 data-i18n="p9_t" data-ed="true">ہاسٹل</h3>
-      <p data-i18n="p9_d" data-ed="true">رہائشی سہولیات اور ہاسٹل رولز کی معلومات</p>
-    </a>
-    <a class="portal-card glass" href="#contact">
-      <div class="icon">🎉</div>
-      <h3 data-i18n="p10_t" data-ed="true">تقریبات</h3>
-      <p data-i18n="p10_d" data-ed="true">سالانہ تقریبات اور خصوصی پروگراموں کا شیڈول</p>
-    </a>
-    <a class="portal-card glass" href="#contact">
-      <div class="icon">💬</div>
-      <h3 data-i18n="p11_t" data-ed="true">شکایات و تجاویز</h3>
-      <p data-i18n="p11_d" data-ed="true">اپنی رائے اور شکایات براہِ راست انتظامیہ تک پہنچائیں</p>
-    </a>
-    <a class="portal-card glass" href="#contact">
-      <div class="icon">☎️</div>
-      <h3 data-i18n="p12_t" data-ed="true">رابطہ</h3>
-      <p data-i18n="p12_d" data-ed="true">انتظامیہ سے براہِ راست رابطہ کے ذرائع</p>
     </a>
     <a class="portal-card glass" href="#progress">
       <div class="icon">📈</div>
@@ -644,7 +672,6 @@ body{ background-attachment:fixed; }  /* no gradient seam while scrolling */
   </div>
   <div class="adm2-wrap" id="admSheet"><div class="adm2" dir="rtl">
     <img class="wm" alt="" aria-hidden="true">
-    <img class="wm" alt="" aria-hidden="true">
     <div class="fh">
       <div class="fh-hadith">“علم حاصل کرنا ہر مسلمان مرد و عورت پر فرض ہے۔”<small>(ابن ماجہ)</small></div>
       <div class="fh-center">
@@ -719,12 +746,16 @@ body{ background-attachment:fixed; }  /* no gradient seam while scrolling */
       </p>
     </div>
     <div class="stats">
-      <div class="stat glass"><div class="num">📖</div><div class="lbl" data-i18n="stat1" data-ed="true">حفظ و ناظرہ کلاسز</div></div>
+      <div class="stat glass" id="hifzStat">
+        <div class="stat-head" id="hifzHead" role="button" tabindex="0" aria-expanded="false"><div class="num">📖</div><div class="lbl" data-i18n="stat1" data-ed="true">حفظ و ناظرہ کلاسز</div><div class="stat-arrow" aria-hidden="true">▾</div></div>
+        <div class="hc-panel"><div id="hifzClasses" class="hc-grid"></div></div>
+      </div>
       <div class="stat glass"><div class="num">🕌</div><div class="lbl" data-i18n="stat2" data-ed="true">دینی نصاب</div></div>
       <div class="stat glass"><div class="num">👨‍🏫</div><div class="lbl" data-i18n="stat3" data-ed="true">تجربہ کار اساتذہ</div></div>
       <div class="stat glass"><div class="num">🎓</div><div class="lbl" data-i18n="stat4" data-ed="true">فارغ التحصیل طلبہ</div></div>
     </div>
   </div>
+
 </section>
 
 <section id="announcements">
@@ -1361,6 +1392,87 @@ document.getElementById('admShareBtn').addEventListener('click',async()=>{
     if(navigator.canShare&&navigator.canShare({files:[file]})){ await navigator.share({files:[file],title:'داخلہ فارم'}); return; }
   }catch(err){ if(err&&err.name==='AbortError') return; }
   window.open(URL.createObjectURL(lastPdf),'_blank');
+});
+</script>
+<script>
+/* ---- Hifz & Nazira: three classes (class name, teacher, number of students) ---- */
+Object.assign(i18nDict.ur,{hc_class:"کلاس",hc_teacher:"استاد",hc_teacher_ph:"استاد کا نام",hc_count:"طلبہ کی تعداد"});
+Object.assign(i18nDict.ar,{hc_class:"الفصل",hc_teacher:"المعلّم",hc_teacher_ph:"اسم المعلّم",hc_count:"عدد الطلاب"});
+Object.assign(i18nDict.fa,{hc_class:"کلاس",hc_teacher:"استاد",hc_teacher_ph:"نام استاد",hc_count:"تعداد دانش‌آموزان"});
+Object.assign(i18nDict.en,{hc_class:"Class",hc_teacher:"Teacher",hc_teacher_ph:"Teacher's name",hc_count:"Number of students"});
+
+function hcLoad(){
+  try{
+    const r=JSON.parse(localStorage.getItem('madrasaHifzClasses')||'null');
+    if(Array.isArray(r)&&r.length===3) return r.map(c=>({
+      name:c.name||'', teacher:c.teacher||'',
+      count:(c.count!==undefined&&c.count!==null)?String(c.count):((c.students&&c.students.length)?String(c.students.length):'')
+    }));
+  }catch(e){}
+  return [0,1,2].map(()=>({name:'',teacher:'',count:''}));
+}
+function hcSave(){ try{ localStorage.setItem('madrasaHifzClasses', JSON.stringify(hifzClasses)); }catch(e){} }
+let hifzClasses = hcLoad();
+const hcBox = document.getElementById('hifzClasses');
+const hcEsc = t=>String(t==null?'':t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function renderHifz(){
+  const d = i18nDict[currentLang] || i18nDict.ur;
+  hcBox.innerHTML = hifzClasses.map((c,i)=>{
+    const defName = d.hc_class+' '+(i+1);
+    return `<div class="hc-card glass" data-i="${i}">
+      <div class="hc-name${c.name?'':' hc-ph'}" data-f="name" contenteditable="true">${hcEsc(c.name||defName)}</div>
+      <div class="hc-row">👨‍🏫 <b>${d.hc_teacher}:</b> <span class="hc-val${c.teacher?'':' hc-ph'}" data-f="teacher" contenteditable="true">${hcEsc(c.teacher||d.hc_teacher_ph)}</span></div>
+      <div class="hc-row">👥 <b>${d.hc_count}:</b> <input class="hc-num" data-f="count" type="number" inputmode="numeric" min="0" step="1" placeholder="0" value="${hcEsc(c.count)}"></div>
+    </div>`;
+  }).join('');
+}
+
+hcBox.addEventListener('focusout', e=>{
+  const el=e.target, card=el.closest('.hc-card'); if(!card) return;
+  const i=+card.dataset.i, d=i18nDict[currentLang]||i18nDict.ur;
+  if(el.dataset.f==='count'){
+    hifzClasses[i].count = el.value.trim(); hcSave(); return;
+  }
+  const v=el.textContent.trim();
+  if(el.dataset.f==='name') hifzClasses[i].name = (v===d.hc_class+' '+(i+1))?'':v;
+  else if(el.dataset.f==='teacher') hifzClasses[i].teacher = (v===d.hc_teacher_ph)?'':v;
+  else return;
+  hcSave();
+  /* no full re-render here, so tapping from one field to the next keeps focus */
+  const empty = !(el.dataset.f==='name'?hifzClasses[i].name:hifzClasses[i].teacher);
+  el.classList.toggle('hc-ph', empty);
+  if(empty) el.textContent = el.dataset.f==='name'?d.hc_class+' '+(i+1):d.hc_teacher_ph;
+});
+
+/* re-render on language switch */
+const _hcApplyLang = applyLang;
+applyLang = function(l){ _hcApplyLang(l); renderHifz(); };
+renderHifz();
+</script>
+<script>
+/* open / close the three classes inside the Hifz & Nazira box */
+(function(){
+  const stat=document.getElementById('hifzStat'), head=document.getElementById('hifzHead');
+  function toggle(e){
+    if(document.body.classList.contains('edit-mode') && e.target.closest('.lbl')) return;
+    const open=stat.classList.toggle('open');
+    head.setAttribute('aria-expanded', open);
+  }
+  head.addEventListener('click', toggle);
+  head.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(e); } });
+})();
+</script>
+<script>
+/* tap on the blank area beside / outside an open portal to close it */
+document.addEventListener('click', function(e){
+  if(e.target.closest('.bottombar, a[href], .lang-menu, #langMenu')) return;   /* menu + links open portals themselves */
+  document.querySelectorAll('section.expanded').forEach(function(sec){
+    if(!sec.contains(e.target) || e.target === sec){
+      sec.classList.remove('expanded');
+      sec.classList.add('collapsed');
+    }
+  });
 });
 </script>
 </body>
